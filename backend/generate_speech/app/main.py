@@ -112,12 +112,13 @@ def warm_model() -> None:
 def generate_speech(
     party: str = Query(...),
     topic: str = Query(...),
+    stance: str = Query("support"),
     max_new_tokens: int = Query(200, ge=1, le=1024),
     temperature: float = Query(0.9, gt=0.0, le=2.0),
     seed: int | None = Query(None),
     # x_api_key: str = Header(...)
 ):
-    PROMPT = f"Mr. Speaker, I rise today as a member of the {party} party in support of {topic}"
+    PROMPT = f"Mr. Speaker, I rise today as a member of the {party} party in {stance} of {topic}"
 
     try:
         speech = run_generation(
