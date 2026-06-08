@@ -15,6 +15,7 @@ const TOPICS = [
   'Social Security',
   'Infrastructure investment',
   'Trade and tariffs',
+  'AI regulation'
 ]
 
 const PARTIES = ['Democratic', 'Republican', 'Independent']
