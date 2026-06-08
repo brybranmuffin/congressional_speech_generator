@@ -1,0 +1,5 @@
+*congressional_embeddings.txt
+*.safetensors
+*_phase1_activations.npy
+*metadata_1000000.json
+*_last_1000000.npy
