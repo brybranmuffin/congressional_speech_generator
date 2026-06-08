@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 
-// API base URLs — override at build time with VITE_GENERATE_API / VITE_EMI_API.
-const GEN_API = import.meta.env.VITE_GENERATE_API || 'http://localhost:8080'
-const EMI_API = import.meta.env.VITE_EMI_API || 'http://localhost:8000'
+// Single combined backend (generation + EMI). Override at build time with VITE_API_BASE.
+const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
 
 const TOPICS = [
   'Healthcare reform',
@@ -68,7 +67,7 @@ export default function App() {
         max_new_tokens: '200',
         temperature: String(creativity),
       })
-      const res = await fetch(`${GEN_API}/generate_speech?${params}`, { method: 'POST' })
+      const res = await fetch(`${API_BASE}/generate_speech?${params}`, { method: 'POST' })
       if (!res.ok) throw new Error(`Generation failed (${res.status})`)
       const data = await res.json()
       setSpeech(data.speech || '')
@@ -85,7 +84,7 @@ export default function App() {
     setEmiLoading(true)
     try {
       const params = new URLSearchParams({ w2v: 'true', bert: 'true', gpt2: 'true', text: speech })
-      const res = await fetch(`${EMI_API}/calculate_emi?${params}`, { method: 'POST' })
+      const res = await fetch(`${API_BASE}/calculate_emi?${params}`, { method: 'POST' })
       if (!res.ok) throw new Error(`EMI calculation failed (${res.status})`)
       setEmi(await res.json())
     } catch (e) {
