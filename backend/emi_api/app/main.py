@@ -1,4 +1,4 @@
-"""Combined backend: GPT-2 speech generation + Evidence-Motivation Index (EMI) scoring.
+"""Combined backend: GPT-2 speech generation + Evidence Minus Intuition (EMI) scoring.
 
 Two endpoints served from one app/container:
 

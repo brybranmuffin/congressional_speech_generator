@@ -1,7 +1,0 @@
-fastapi>=0.111.0
-uvicorn[standard]>=0.29.0
---extra-index-url https://download.pytorch.org/whl/cpu
-torch>=2.3.0
-transformers>=4.40.0
-gensim>=4.3.0
-numpy>=1.26.0

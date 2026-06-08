@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { interpretationFor } from './emiInterpretations'
 
 // Single combined backend (generation + EMI). Override at build time with VITE_API_BASE.
 const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:8000'
@@ -113,8 +114,8 @@ export default function App() {
         </div>
         <p className="dek">
           A machine-authored congressional address engine. Compose a floor speech with a
-          fine-tuned GPT-2 model, then submit it to the <strong>Evidence-Motivation Index</strong>
-          {' '}— a three-method analysis measuring whether the rhetoric leans on evidence or instinct.
+          fine-tuned GPT-2 model, then submit it to the <strong>Evidence Minus Intuition (EMI)</strong>
+          {' '}score — a three-method analysis measuring whether the rhetoric leans on evidence or instinct.
         </p>
       </header>
 
@@ -253,6 +254,22 @@ export default function App() {
                   </div>
                 )
               })}
+
+              {(() => {
+                const interp = interpretationFor(emi)
+                return interp ? (
+                  <div className="verdict">
+                    <span className="kicker blue">The Verdict</span>
+                    <h3 className="verdict-title">{interp.title}</h3>
+                    <p className="verdict-text">{interp.text}</p>
+                  </div>
+                ) : (
+                  <p className="verdict-note">
+                    A combined interpretation needs all three scores — Word2Vec found no
+                    vocabulary overlap for this text.
+                  </p>
+                )
+              })()}
             </section>
           )}
         </section>

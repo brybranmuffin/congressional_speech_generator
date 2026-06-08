@@ -403,6 +403,51 @@ input[type='range'] {
   background: var(--red);
 }
 
+/* ───────────── EMI combined verdict ───────────── */
+.verdict {
+  margin-top: 22px;
+  border: 1px solid var(--ink);
+  border-top: 4px solid var(--blue);
+  padding: 18px;
+  background: #fff;
+}
+.verdict .kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.verdict-title {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+.verdict-text {
+  font-family: var(--body);
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 0;
+}
+.verdict-text::first-letter {
+  font-family: var(--serif);
+  font-weight: 900;
+  font-size: 2.8em;
+  line-height: 0.8;
+  float: left;
+  padding: 4px 10px 0 0;
+}
+.verdict-note {
+  margin-top: 18px;
+  border: 1px dashed var(--n400);
+  padding: 12px 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--n500);
+}
+
 /* ───────────── Footer ───────────── */
 .footer {
   display: flex;
