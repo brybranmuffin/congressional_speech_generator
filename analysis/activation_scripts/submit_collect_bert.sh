@@ -41,7 +41,7 @@ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 
 echo "======================================"
 $PYTHON collect_activations_bert.py \
-    --n_speeches 50000 \
+    --n_speeches 1000000 \
     --layers last \
     --batch_size 64 \
     --output_dir ./activations \

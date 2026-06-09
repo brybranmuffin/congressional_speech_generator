@@ -41,7 +41,7 @@ nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 
 echo "======================================"
 $PYTHON collect_activations_gpt2.py \
-    --n_speeches 50000 \
+    --n_speeches 1000000 \
     --layers last \
     --batch_size 32 \
     --output_dir ./activations \
