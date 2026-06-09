@@ -1,5 +1,7 @@
 # Congressional Speech Generator
 
+https://zealous-glacier-03d5ea010.7.azurestaticapps.net/
+
 ## Background
 
 The foundation of this project involves finetuning both BERT and GPT2 models. Both models are used for analysis, while GPT2 alone is used for text generation. The analysis portion calculates an EMI (Evidence Minus Intuition) score. EMI is a measure developed by Aroyehun et al. (https://www.nature.com/articles/s41562-025-02136-2) using word2vec embeddings to measure how closely a congressional speech aligns with evidence over intuition seed vectors. Scores are calculated by embedding seed vectos for evidence and intuition words into a word2vec embedding space created from the 8 million speeches themselves. The scores are calculated by embedding the speech into the word2vec space, calculating the cosine similarities between the speech vector and the seed vectors, and subtracting the difference. Higher scores means the speech is more likely to be based on evidence and logic, while lower scores means the speech is more likely to be based on intuition and emotion. 
